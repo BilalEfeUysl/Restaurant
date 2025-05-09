@@ -1,0 +1,131 @@
+/* calisan-style.css */
+
+/* --- Çalışan Paneli Sipariş Listeleri --- */
+.siparis-listesi {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+  
+.siparis-listesi li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* <<< BUNU WRAP DEĞİL YAPMA */
+    padding: 15px 10px;
+    gap: 10px;
+    border-bottom: 1px solid #f0f0f0;                /* Sarma olursa veya dikeyde boşluk için */
+}
+.siparis-listesi li:last-child {
+    border-bottom: none;
+}
+
+#calisan-icerik {
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+  
+
+.siparis-listesi li:hover { /* Hover efekti */
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Sipariş Bilgisi (Sol Taraf) */
+.siparis-listesi li > span {
+    font-weight: 500;
+    flex-grow: 1;
+    margin-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: unset;
+}
+
+/* Butonları Saran Div (Sağ Taraf) */
+.siparis-actions {
+    display: flex;        /* İçindeki butonları yan yana dizer */
+    flex-shrink: 0;       /* Buton grubunun daralmasını engeller */
+    gap: 8px;             /* Butonlar arası boşluk */
+    margin-left: auto; /* <<< BU EN ÖNEMLİSİ */
+    /* align-items: center; Zaten li'den alıyor olmalı */
+}
+
+/* Aksiyon Butonları */
+.siparis-actions button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+    margin-left: 0; /* Gap kullanıldığı için margin'e gerek yok */
+     /* Renkler style.css'teki .btn-* sınıflarından gelecek */
+}
+
+/* Sipariş Detay Alanı (Altta) */
+.siparis-detay {
+    background-color: var(--light-color);
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-top: 10px; /* Üstündeki elemanlardan ayırmak için */
+    border-radius: 6px;
+    flex-basis: 100%; /* Tam genişlik kaplayarak alta kayar */
+    font-size: 0.95em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    /* display: none; JS tarafından yönetilir */
+}
+.siparis-detay ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0 10px 0;
+}
+.siparis-detay ul li {
+    padding: 4px 0;
+    border-bottom: 1px dotted #ddd;
+}
+.siparis-detay ul li:last-child { border-bottom: none;}
+
+.siparis-detay p { /* Toplam tutar */
+    margin-top: 10px;
+    text-align: right;
+    font-size: 1.05em;
+}
+
+
+.siparis-listesi li:only-child:hover {
+    background-color: transparent;
+}
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .toast {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    opacity: 0.95;
+    font-size: 0.95em;
+    animation: slideIn 0.4s ease, fadeOut 0.5s ease 2.5s forwards;
+  }
+  
+  .toast.success { background-color: #28a745; }  /* Yeşil */
+  .toast.error   { background-color: #dc3545; }  /* Kırmızı */
+  .toast.warning { background-color: #ffc107; color: #000; }  /* Sarı */
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 0.95; }
+  }
+  
+  @keyframes fadeOut {
+    to   { opacity: 0; transform: translateX(100%); }
+  }
+  
+
+  
+/* --- BURAYA KADAR OLAN KISMI GÜNCELLE/DEĞİŞTİR --- */
